@@ -1,11 +1,20 @@
-# Script base para calcular estadísticas simples
+import statistics
+
+# Script base con manejo de listas y validación
 datos = [12, 45, 23, 67, 34, 89, 22]
 
 
-def calcular_promedio(lista):
-  return sum(lista) / len(lista)
+def analizar_datos(lista):
+  if not lista:
+    return "La lista está vacía"
+
+  promedio = sum(lista) / len(lista)
+  mediana = statistics.median(lista)
+  maximo = max(lista)
+
+  return {"promedio": promedio, "mediana": mediana, "maximo": maximo}
 
 
 if __name__ == "__main__":
-  promedio = calcular_promedio(datos)
-  print(f"El promedio es: {promedio}")
+  resultado = analizar_datos(datos)
+  print(f"Resultados del análisis: {resultado}")
